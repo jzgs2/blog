@@ -17,12 +17,12 @@ export const siteConfig: SiteConfig = {
 	},
 	banner: {
 		enable: true,
-		src: "/Celestia.webp", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+		src: "/5670.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
 			enable: true, // Display the credit text of the banner image
-			text: "Pixiv @chokei", // Credit text to be displayed
-			url: "https://www.pixiv.net/artworks/122782209", // (Optional) URL link to the original artwork or artist's page
+			text: "From", // Credit text to be displayed
+			url: "https://www.magnific.com/zh/%E5%85%8D%E8%B2%BB%E7%85%A7%E7%89%87%E7%9F%A2%E9%87%8F/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF%E9%A3%8E%E6%99%AF", // (Optional) URL link to the original artwork or artist's page
 		},
 	},
 	toc: {
@@ -59,9 +59,9 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "/avatar.webp", // Relative to the /src directory. Relative to the /public directory if it starts with '/' 原assets/images/demo-avatar.png,可选https://q2.qlogo.cn/headimg_dl?dst_uin=189563385&spec=0
-	name: "yCENzh",
-	bio: "Protect What You Love./爱你所爱！",
+	avatar: "/avatar.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/' 原assets/images/demo-avatar.png,可选https://q2.qlogo.cn/headimg_dl?dst_uin=189563385&spec=0
+	name: "leeshang",
+	bio: "And now",
 	links: [
 		/*{
 			name: "Twitter",
@@ -78,9 +78,9 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/yCENzh",
+			url: "https://github.com/jzgs2",
 		},
-		{
+		/*{
 			name: "Telegram",
 			icon: "fa6-brands:telegram",
 			url: "https://t.me/yCENzh",

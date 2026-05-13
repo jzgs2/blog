@@ -5,7 +5,7 @@ description: "How to use this blog template."
 image: "./index.jpeg"
 tags: ["Fuwari", "Blogging", "Customization"]
 category: Default
-draft: false
+draft: true
 series: Examples
 ---
 

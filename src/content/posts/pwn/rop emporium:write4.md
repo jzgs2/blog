@@ -84,9 +84,9 @@ here they are
 0x0000000000400690: pop r14; pop r15; ret;
 ```
 
-准备就绪，开始构造payload
+准备就绪，开始构造脚本
 
-## 构造脚本payload
+## 构造exp脚本
 
 长这样：
 
@@ -125,6 +125,7 @@ python3 write4.py
 Thank you!
 ROPE{a_placeholder_32byte_flag!}
 [*] Got EOF while reading in interactive
+$ 
 ```
 
 flag出来了

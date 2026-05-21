@@ -146,7 +146,7 @@ ropper --file ./split --search "pop rdi"
 
 那接下来便是
 
-## 构造脚本payload
+## 构造exp脚本
 
 根据我们的脚本模板和思路，这道题的脚本就长这样
 
@@ -175,6 +175,7 @@ python3 split.py
 [*] Switching to interactive mode
 Thank you!
 [*] Got EOF while reading in interactive
+$ 
 ```
 
 第一时间想到是不是又没`栈对齐`，加个`ret`试试呢，要保证`/bin/cat flag.txt`配合`pop rdi`指令进入寄存器，又要保证最后调用到目标函数，以及pop rdi后面紧接着的`ret`，那么这个ret最合适的地方便是`/bin/cat flag.txt`和`system@plt`中间了，于是payload变为：

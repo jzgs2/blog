@@ -115,7 +115,7 @@ pdf @ sym.ret2win
 
 也就是说只要我们能跳到这个函数，flag就自动出来了
 
-## 构造脚本payload
+## 构造exp脚本
 
 反汇编的函数名前面能很轻易地看到函数地址，于是我们的初始脚本的payload就长这样
 
@@ -174,6 +174,7 @@ Thank you!
 Well done! Here's your flag:
 ROPE{a_placeholder_32byte_flag!}
 [*] Got EOF while reading in interactive
+$ 
 ```
 
 当当当当，flag出来了捏

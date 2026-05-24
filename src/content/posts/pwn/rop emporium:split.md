@@ -16,7 +16,7 @@ series: ROP Emporium
 
 ## 工具
 
-pwntools、ropper、rabin2
+`pwntools`、`ropper`、`rabin2`
 
 ## 检查二进制文件权限
 
@@ -39,7 +39,7 @@ Arch:       amd64-64-little
 
 正如这个专栏的特点般心照不宣
 
-## 寻找有用参数、目标函数和gadget
+## 寻找有用参数、目标函数和gadgets
 
 还记得第一题目标函数里面最关键的函数及其参数吗：
 

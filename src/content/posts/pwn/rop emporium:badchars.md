@@ -20,7 +20,7 @@ series: ROP Emporium
 
 `pwntools`、`ropper`
 
-## 查反汇编，确定函数地址，找有用gadget；readelf确定写入地址
+## 查反汇编，确定函数地址，找gadgets；readelf确定写入地址
 
 依旧反汇编
 

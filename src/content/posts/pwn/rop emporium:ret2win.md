@@ -21,9 +21,11 @@ series: ROP Emporium
 
 # 话不多说，进入第一题
 
-## 确定offset
+## 工具
 
-> 这道题我们用到的工具为`pwntools`、`ropper`、`GNU Debugger`、`radare2`
+`pwntools`、`ropper`、`gdb`、`radare2`
+
+## 确定offset
 
 题目很贴心地提示了我们offset是40字节(x86_64)，后面很多题的offset也都是40字节，所以我会省略计算offset的步骤，不过还是提一嘴吧，命令如下
 
@@ -71,7 +73,7 @@ pwn cyclic -n 8 -l 0x6161616161616166
 
 意料之中的40呢，offset的确定就到此为止了，接下来，我们去一睹程序真容，构造payload，拿到flag！
 
-## 查反汇编，确定目标函数，找到有用gadget
+## 查反汇编，确定目标函数，找gadgets
 
 反汇编指令也提一嘴吧~
 

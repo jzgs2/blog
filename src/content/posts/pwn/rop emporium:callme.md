@@ -20,7 +20,7 @@ series: ROP Emporium
 
 ## 工具
 
-pwntools
+`pwntools`
 
 ~~好像都用不上啥工具呢~~
 
@@ -41,7 +41,7 @@ pwn checksec ./callme
 
 ~~象征性地看一看~~
 
-## 查反汇编，确定函数地址，找有用gadget
+## 查反汇编，确定函数地址，找gadgets
 
 多个函数，相似的函数名，查反汇编应该会更直接
 

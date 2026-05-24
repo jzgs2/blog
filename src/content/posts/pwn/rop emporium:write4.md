@@ -21,7 +21,7 @@ series: ROP Emporium
 
 依旧精简
 
-## 查反汇编，确定函数地址，找有用gadget；readelf确定写入地址
+## 查反汇编，确定函数地址，找gadgets；readelf确定写入地址
 
 不看文件权限了，懂的都懂()
 

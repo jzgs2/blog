@@ -2,8 +2,8 @@
 title: 1 find it
 published: 2026-06-01
 image: ""
-tags: [pwn]
-category: fd
+tags: [fd]
+category: pwn
 draft: false
 series: 青岑moectf2025
 ---
